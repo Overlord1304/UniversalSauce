@@ -117,7 +117,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sugp2")
-text = "Buy Tomatoes ($0.50)
+text = "Buy Tomato Box ($20.0)
 "
 
 [node name="BG" type="Panel" parent="."]

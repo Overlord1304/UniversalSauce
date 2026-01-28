@@ -16,6 +16,7 @@ func _ready():
 
 
 func _process(delta):
+	Global.marketing_boost = Global.marketing_lvl * 0.25
 	sell_timer += delta
 	if sell_timer >= sell_interval:
 		sell_timer = 0
@@ -27,7 +28,7 @@ func update_ui():
 	sauce_inv_label.text= "Sauce Bottles: "+str(Global.sauce_inventory)
 	lifetime_sauce_label.text = "Lifetime Sauce Ever Made: "+str(Global.lifetime_sauce)
 	price_label.text = "Price Per Bottle: $"+str(Global.sauce_price)
-	demand_label.text = "Public Demand: " + str(int(Global.public_demand*100))+"%"
+	demand_label.text = "Public Demand: " + str(int(Global.public_demand*(1+Global.marketing_boost)*100))+"%"
 	
 
 func make_sauce(check):
@@ -50,7 +51,7 @@ func _on_make_sauce_pressed() -> void:
 
 
 func _on_price_inc_pressed() -> void:
-	Global.sauce_price += 0.1
+	Global.sauce_price += 0.01
 	recalc_demand()
 	update_ui()
 	Global.save_data()
@@ -59,22 +60,23 @@ func sell_sauce():
 	if Global.sauce_inventory <= 0:
 		return
 	for i in range(Global.sauce_inventory):
-		var sell_chance = Global.public_demand * 0.3
+		var sell_chance = Global.public_demand * 0.1
 		if randf() < sell_chance:
 			Global.sauce_inventory -= 1
 			Global.money += Global.sauce_price
 	Global.save_data()
 func _on_price_dec_pressed() -> void:
-	Global.sauce_price -= 0.1 
-	recalc_demand()
-	update_ui()
-	Global.save_data()
+	if Global.sauce_price > 0.01:
+		Global.sauce_price -= 0.01 
+		recalc_demand()
+		update_ui()
+		Global.save_data()
 func recalc_demand(): 
-	Global.public_demand = clamp(1.5-Global.sauce_price*0.3,0.05,2.0)
+	Global.public_demand = 0.08 / max(Global.sauce_price,0.01)
 func _on_buy_tomato_pressed() -> void:
 	if Global.money >= Global.tomato_price:
 		Global.money -= Global.tomato_price
-		Global.tomatoes += 1
+		Global.tomatoes += 1000*(1+Global.tomato_boost)
 		update_ui()
 		Global.save_data()
 

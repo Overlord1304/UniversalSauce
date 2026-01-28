@@ -166,9 +166,70 @@ theme_override_font_sizes/font_size = 50
 text = "$6.00"
 horizontal_alignment = 1
 
+[node name="upg2" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
+text = "Marketing(Increased Demand)
+
+"
+
+[node name="upg2cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 48.0
+offset_right = 118.0
+offset_bottom = 170.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 50
+text = "$100.00"
+horizontal_alignment = 1
+
+[node name="upg3" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
+text = "Tomato Supply (50% more 
+tomatoes per box)
+
+"
+
+[node name="upg3cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 112.0
+offset_right = 118.0
+offset_bottom = 234.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 50
+text = "$250.00"
+horizontal_alignment = 1
+
 [node name="Main" parent="." instance=ExtResource("3_1l46r")]
 visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg1" to="." method="_on_upg_1_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg2" to="." method="_on_upg_2_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg3" to="." method="_on_upg_3_pressed"]
