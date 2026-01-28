@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3g463unqairy"]
+
+[ext_resource type="Script" uid="uid://bauydblgwvekd" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="FontFile" uid="uid://b1ecuue8wn2td" path="res://fonts/Fredoka-Regular.ttf" id="2_sugp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sugp2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wfyh"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0wfyh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LifetimeSauce" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+
+[node name="Money" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+horizontal_alignment = 1
+
+[node name="Tomatoes" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+horizontal_alignment = 1
+
+[node name="SauceInventory" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+horizontal_alignment = 1
+
+[node name="Price" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+horizontal_alignment = 1
+
+[node name="Demand" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -122.5
+offset_right = 288.0
+offset_bottom = 322.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MakeSauce" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 40
+text = "Make Sauce (1 tomato)"
+
+[node name="PriceDec" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sugp2")
+text = "Decrease Price
+"
+
+[node name="BuyTomato" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sugp2")
+text = "Buy Tomatoes ($0.50)
+"
+
+[node name="PriceInc" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0wfyh")
+text = "Increase Price
+"
+
+[connection signal="pressed" from="Buttons/MakeSauce" to="." method="_on_make_sauce_pressed"]
+[connection signal="pressed" from="Buttons/PriceDec" to="." method="_on_price_dec_pressed"]
+[connection signal="pressed" from="Buttons/BuyTomato" to="." method="_on_buy_tomato_pressed"]
+[connection signal="pressed" from="Buttons/PriceInc" to="." method="_on_price_inc_pressed"]
