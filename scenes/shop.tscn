@@ -1,0 +1,174 @@
+[gd_scene load_steps=11 format=3 uid="uid://u8wua787t2ky"]
+
+[ext_resource type="Script" uid="uid://7b6qbwsd7k1q" path="res://scripts/shop.gd" id="1_xfvoa"]
+[ext_resource type="FontFile" uid="uid://b1ecuue8wn2td" path="res://fonts/Fredoka-Regular.ttf" id="2_1l46r"]
+[ext_resource type="PackedScene" uid="uid://d3g463unqairy" path="res://scenes/main.tscn" id="3_1l46r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
+bg_color = Color(0.78431374, 0.047058824, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sugp2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfvoa"]
+bg_color = Color(0, 0, 0, 0.5686275)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1l46r"]
+bg_color = Color(0, 0, 0, 0.50980395)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_032fp"]
+bg_color = Color(0, 0, 0, 0.7529412)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fc2m"]
+bg_color = Color(0.21950102, 0.21950102, 0.21950102, 0.4117647)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fc2m"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xfvoa")
+
+[node name="bg" type="Panel" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0wfyh")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 100
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 117.0
+offset_bottom = 77.0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sugp2")
+text = "Back"
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -375.0
+offset_top = 41.0
+offset_right = 375.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xfvoa")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_right = 111.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 75
+text = "Upgrades"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 100.0
+offset_right = -22.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="upg1" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
+text = "Machine (+1 Sauce Per Second)
+
+"
+
+[node name="upg1cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 48.0
+offset_right = 118.0
+offset_bottom = 170.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 50
+text = "$6.00"
+horizontal_alignment = 1
+
+[node name="Main" parent="." instance=ExtResource("3_1l46r")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg1" to="." method="_on_upg_1_pressed"]
