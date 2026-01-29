@@ -8,11 +8,13 @@ var sell_interval = 1.0
 @onready var lifetime_sauce_label = $VBoxContainer/LifetimeSauce
 @onready var price_label = $VBoxContainer/Price
 @onready var demand_label = $VBoxContainer/Demand
-
+@onready var pepper_label = $PepperPanel/Pepper
+@onready var revenue_label = $Revenue
 func _ready():
 	update_ui()
 	Global.load_data()
 	$Passive.start(Global.machine_cooldown)
+	$Pepper.start()
 
 
 func _process(delta):
@@ -29,8 +31,12 @@ func update_ui():
 	lifetime_sauce_label.text = "Lifetime Sauce Ever Made: "+Global.format_number(Global.lifetime_sauce)
 	price_label.text = "Price Per Bottle: $"+Global.format_number(Global.sauce_price)
 	demand_label.text = "Public Demand: " +Global.format_number(int(Global.public_demand*(1+Global.marketing_boost)*100))+"%"
-	
-
+	pepper_label.text = "Pepper: "+ str(round(Global.pepper))+" / "+ str(Global.pepper_cap)
+	if Global.revenue_enabled:
+		revenue_label.visible = true
+		revenue_label.text = "Revenue/sec: $" + Global.format_number(Global.revenue_per_sec)
+	else:
+		revenue_label.visible = false
 func make_sauce(check):
 	if Global.tomatoes >= 1:
 		if check == 0:
@@ -49,7 +55,9 @@ func _on_make_sauce_pressed() -> void:
 	make_sauce(0)
 
 
-
+func generate_pepper():
+	Global.pepper += Global.pepper_per_sec
+	Global.pepper = min(Global.pepper,Global.pepper_cap)
 func _on_price_inc_pressed() -> void:
 	Global.sauce_price += 0.01
 	recalc_demand()
@@ -58,12 +66,16 @@ func _on_price_inc_pressed() -> void:
 
 func sell_sauce():
 	if Global.sauce_inventory <= 0:
+		Global.revenue_per_sec = 0
 		return
+	var earnings = 0.0
 	for i in range(Global.sauce_inventory):
 		var sell_chance = Global.public_demand * 0.1
 		if randf() < sell_chance:
 			Global.sauce_inventory -= 1
 			Global.money += Global.sauce_price
+			earnings += Global.sauce_price
+	Global.revenue_per_sec = earnings
 	Global.save_data()
 func _on_price_dec_pressed() -> void:
 	if Global.sauce_price > 0.01:
@@ -80,10 +92,22 @@ func _on_buy_tomato_pressed() -> void:
 		update_ui()
 		Global.save_data()
 
-
 func _on_shop_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/shop.tscn")
 
 
 func _on_passive_timeout() -> void:
 	make_sauce(1)
+	
+
+
+func _on_pepper_timeout() -> void:
+	generate_pepper()
+
+
+func _on_plug_1_pressed() -> void:
+	if Global.pepper >= 500:
+		Global.pepper -= 500
+		Global.revenue_enabled = true
+		update_ui()
+		Global.save_data()

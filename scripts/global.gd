@@ -1,6 +1,11 @@
 extends Node
 var money = 0.0
 var tomatoes = 1000
+var pepper = 0
+var pepper_per_sec = 5
+var pepper_cap = 1000
+var revenue_per_sec = 0.0
+var revenue_enabled = false
 var sauce_inventory = 0
 var lifetime_sauce = 0
 var sauce_price = 0.25
@@ -49,7 +54,11 @@ func save_data():
 		"marketing_lvl": marketing_lvl,
 		"marketing_boost": marketing_boost,
 		"tomato_boost": tomato_boost,
-		"machine_cooldown": machine_cooldown
+		"machine_cooldown": machine_cooldown,
+		"pepper": pepper,
+		"pepper_cap": pepper_cap,
+		"pepper_per_sec": pepper_per_sec,
+		"revenue_enabled": revenue_enabled
 	}
 	var file = FileAccess.open(saves,FileAccess.WRITE)
 	file.store_var(data)
@@ -83,6 +92,11 @@ func load_data():
 			marketing_boost = data.get("marketing_boost",0)
 			tomato_boost = data.get("tomato_boost",0)
 			machine_cooldown = data.get("machine_cooldown",0)
+			pepper = data.get("pepper",0)
+			pepper_per_sec = data.get("pepper_per_sec",5)
+			pepper_cap = data.get("pepper_cap",1000)
+			revenue_enabled = data.get("revenue_enabled",false)
+			
 	else:
 		save_data()
 func format_number(n):

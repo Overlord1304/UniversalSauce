@@ -12,6 +12,8 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.78431374, 0.047058824, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbgi4"]
+
 [node name="Main" type="Control" unique_id=1962165658]
 layout_mode = 3
 anchors_preset = 15
@@ -21,63 +23,71 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0wfyh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=485860274]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Revenue" type="Label" parent="." unique_id=2017672241]
+layout_mode = 0
+offset_left = 609.0
+offset_top = 54.0
+offset_right = 795.0
+offset_bottom = 94.0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1231166793]
+layout_direction = 2
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 323.0
 
 [node name="LifetimeSauce" type="Label" parent="VBoxContainer" unique_id=1992454643]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
 theme_override_font_sizes/font_size = 48
-horizontal_alignment = 1
+text = "l"
 
 [node name="Money" type="Label" parent="VBoxContainer" unique_id=1648482235]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
+text = "m"
 
 [node name="Tomatoes" type="Label" parent="VBoxContainer" unique_id=1909941881]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
+text = "t"
 
 [node name="SauceInventory" type="Label" parent="VBoxContainer" unique_id=1616404618]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
 
 [node name="Price" type="Label" parent="VBoxContainer" unique_id=1832222957]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
+text = "f"
 
 [node name="Demand" type="Label" parent="VBoxContainer" unique_id=307652718]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
+text = "d"
 
 [node name="Buttons" type="VBoxContainer" parent="." unique_id=893521122]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -445.0
+offset_top = -330.0
 offset_right = 576.0
+offset_bottom = 115.0
 grow_vertical = 0
 
 [node name="MakeSauce" type="Button" parent="Buttons" unique_id=502992789]
@@ -142,10 +152,10 @@ vertical_alignment = 2
 
 [node name="Shop" type="Button" parent="." unique_id=1545533052]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 117.0
-offset_bottom = 77.0
+offset_left = 1038.0
+offset_top = 18.0
+offset_right = 1135.0
+offset_bottom = 75.0
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
 theme_override_font_sizes/font_size = 40
@@ -154,12 +164,72 @@ text = "Shop"
 
 [node name="Passive" type="Timer" parent="." unique_id=1420332790]
 
-[node name="Panel" type="Panel" parent="." unique_id=1774111163]
+[node name="PepperPanel" type="Panel" parent="." unique_id=1774111163]
 layout_mode = 0
-offset_left = 968.0
-offset_top = 301.0
-offset_right = 1156.0
-offset_bottom = 479.0
+offset_left = 770.0
+offset_top = 270.0
+offset_right = 1121.0
+offset_bottom = 583.0
+
+[node name="Title" type="Label" parent="PepperPanel" unique_id=1276231138]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.0
+offset_right = 102.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 40
+text = "Pepper Plantation"
+vertical_alignment = 2
+
+[node name="Pepper" type="Label" parent="PepperPanel" unique_id=30672658]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -248.0
+offset_right = 185.0
+offset_bottom = -217.0
+grow_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 25
+text = "Pepper: 0/1000"
+vertical_alignment = 2
+
+[node name="plug1" type="Button" parent="PepperPanel" unique_id=416378501]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 107.0
+offset_right = 339.0
+offset_bottom = 171.0
+
+[node name="plug1label" type="Label" parent="PepperPanel/plug1" unique_id=879664910]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "Revenue Tracker: Calculates the revenue per
+second. (500 pepper)
+"
+
+[node name="Pepper" type="Timer" parent="." unique_id=998249842]
 
 [connection signal="pressed" from="Buttons/MakeSauce" to="." method="_on_make_sauce_pressed"]
 [connection signal="pressed" from="Buttons/PriceInc" to="." method="_on_price_inc_pressed"]
@@ -167,3 +237,5 @@ offset_bottom = 479.0
 [connection signal="pressed" from="Buttons/BuyTomato" to="." method="_on_buy_tomato_pressed"]
 [connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
 [connection signal="timeout" from="Passive" to="." method="_on_passive_timeout"]
+[connection signal="pressed" from="PepperPanel/plug1" to="." method="_on_plug_1_pressed"]
+[connection signal="timeout" from="Pepper" to="." method="_on_pepper_timeout"]
