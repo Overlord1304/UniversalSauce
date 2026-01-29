@@ -12,7 +12,7 @@ var sell_interval = 1.0
 func _ready():
 	update_ui()
 	Global.load_data()
-	$Passive.start()
+	$Passive.start(Global.machine_cooldown)
 
 
 func _process(delta):
@@ -23,12 +23,12 @@ func _process(delta):
 		sell_sauce()
 	update_ui()
 func update_ui():
-	money_label.text = "Money: $"+str(Global.money)
-	tomato_label.text = "Tomatoes: "+str(Global.tomatoes)
-	sauce_inv_label.text= "Sauce Bottles: "+str(Global.sauce_inventory)
-	lifetime_sauce_label.text = "Lifetime Sauce Ever Made: "+str(Global.lifetime_sauce)
-	price_label.text = "Price Per Bottle: $"+str(Global.sauce_price)
-	demand_label.text = "Public Demand: " + str(int(Global.public_demand*(1+Global.marketing_boost)*100))+"%"
+	money_label.text = "Money: $"+Global.format_number(Global.money)
+	tomato_label.text = "Tomatoes: "+Global.format_number(Global.tomatoes)
+	sauce_inv_label.text= "Sauce Bottles: "+Global.format_number(Global.sauce_inventory)
+	lifetime_sauce_label.text = "Lifetime Sauce Ever Made: "+Global.format_number(Global.lifetime_sauce)
+	price_label.text = "Price Per Bottle: $"+Global.format_number(Global.sauce_price)
+	demand_label.text = "Public Demand: " +Global.format_number(int(Global.public_demand*(1+Global.marketing_boost)*100))+"%"
 	
 
 func make_sauce(check):

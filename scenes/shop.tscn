@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://u8wua787t2ky"]
+[gd_scene format=3 uid="uid://u8wua787t2ky"]
 
 [ext_resource type="Script" uid="uid://7b6qbwsd7k1q" path="res://scripts/shop.gd" id="1_xfvoa"]
 [ext_resource type="FontFile" uid="uid://b1ecuue8wn2td" path="res://fonts/Fredoka-Regular.ttf" id="2_1l46r"]
@@ -43,7 +43,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fc2m"]
 
-[node name="Main" type="Control"]
+[node name="Shop" type="Control" unique_id=1276559412]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xfvoa")
 
-[node name="bg" type="Panel" parent="."]
+[node name="bg" type="Panel" parent="." unique_id=174497287]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -63,7 +63,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0wfyh")
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=1365028242]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -78,7 +78,7 @@ theme_override_font_sizes/font_size = 100
 text = "Shop"
 horizontal_alignment = 1
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="Button" parent="." unique_id=1892172517]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
@@ -90,7 +90,7 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sugp2")
 text = "Back"
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=893028247]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 1
 anchors_preset = 13
@@ -105,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xfvoa")
 
-[node name="Title" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="Panel" unique_id=2141418151]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -120,24 +120,24 @@ theme_override_font_sizes/font_size = 75
 text = "Upgrades"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=412869921]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 22.0
 offset_top = 100.0
-offset_right = -22.0
-offset_bottom = -25.0
+offset_right = -18.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=109354467]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="upg1" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="upg1" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=74934544]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_1l46r")
@@ -147,10 +147,11 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
 text = "Machine (+1 Sauce Per Second)
+‎ 
 
 "
 
-[node name="upg1cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg1"]
+[node name="upg1cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg1" unique_id=273310304]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -166,7 +167,7 @@ theme_override_font_sizes/font_size = 50
 text = "$6.00"
 horizontal_alignment = 1
 
-[node name="upg2" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="upg2" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1444291689]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_1l46r")
@@ -176,10 +177,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
 text = "Marketing(Increased Demand)
-
+‎ 
 "
 
-[node name="upg2cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg2"]
+[node name="upg2cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg2" unique_id=1662238654]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -195,7 +196,7 @@ theme_override_font_sizes/font_size = 50
 text = "$100.00"
 horizontal_alignment = 1
 
-[node name="upg3" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="upg3" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=407998899]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_1l46r")
@@ -206,10 +207,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
 text = "Tomato Supply (50% more 
 tomatoes per box)
-
+‎ 
 "
 
-[node name="upg3cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg3"]
+[node name="upg3cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg3" unique_id=2087358630]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -225,7 +226,98 @@ theme_override_font_sizes/font_size = 50
 text = "$250.00"
 horizontal_alignment = 1
 
-[node name="Main" parent="." instance=ExtResource("3_1l46r")]
+[node name="upg4" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=876868246]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
+text = "Machine Efficiency(machines 50%
+more effective
+‎ 
+"
+
+[node name="upg4cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg4" unique_id=1806194858]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 111.0
+offset_right = 118.0
+offset_bottom = 233.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 50
+text = "$250.00"
+horizontal_alignment = 1
+
+[node name="upg5" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1086717793]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
+text = "Machine Efficiency
+II(machines 50%
+more effective
+‎ 
+"
+
+[node name="upg5cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg5" unique_id=1102125133]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 172.0
+offset_right = 118.0
+offset_bottom = 294.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 50
+text = "$850.00"
+horizontal_alignment = 1
+
+[node name="upg6" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=2099436799]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
+text = "Tomato Supply(75% more 
+tomatoes per box)
+‎ 
+"
+
+[node name="upg6cost" type="Label" parent="Panel/ScrollContainer/VBoxContainer/upg6" unique_id=1075981280]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = 112.0
+offset_right = 118.0
+offset_bottom = 234.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_1l46r")
+theme_override_font_sizes/font_size = 50
+text = "$600.00"
+horizontal_alignment = 1
+
+[node name="Main" parent="." unique_id=1306018075 instance=ExtResource("3_1l46r")]
 visible = false
 layout_mode = 1
 
@@ -233,3 +325,6 @@ layout_mode = 1
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg1" to="." method="_on_upg_1_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg2" to="." method="_on_upg_2_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg3" to="." method="_on_upg_3_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg4" to="." method="_on_upg_4_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg5" to="." method="_on_upg_5_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/upg6" to="." method="_on_upg_6_pressed"]
