@@ -34,6 +34,8 @@ var plug1bought = false
 var plug2bought = false
 var plug3bought = false
 var plug4bought = false
+var plug5bought = false
+var plug_marketing_boost = 1
 var saves = "user://userdata.save"
 func save_data():
 	var data = {
@@ -68,7 +70,9 @@ func save_data():
 		"plug2bought": plug2bought,
 		"plug3bought": plug3bought,
 		"plug4bought": plug4bought,
-		"spice": spice
+		"plug5bought": plug5bought,
+		"spice": spice,
+		"plug_marketing_boost": plug_marketing_boost
 	}
 	var file = FileAccess.open(saves,FileAccess.WRITE)
 	file.store_var(data)
@@ -110,7 +114,9 @@ func load_data():
 			plug2bought = data.get("plug2bought",false)
 			plug3bought = data.get("plug3bought",false)
 			plug4bought = data.get("plug4bought",false)
+			plug5bought = data.get("plug5bought",false)
 			spice = data.get("spice",0)
+			plug_marketing_boost = data.get("plug_marketing_boost",0)
 	else:
 		save_data()
 func format_number(n):

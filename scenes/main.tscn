@@ -313,6 +313,30 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
 text = "Spicy Slogan: Increases Marketing Efficiency
 by 50% (25 Spice, 2500 Pepper)"
 
+[node name="plug5" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=782563512]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="plug5label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug5" unique_id=944136554]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "Plantation Upgrade II: Increases pepper 
+storage. (2500  pepper)
+"
+
 [node name="Spice" type="Label" parent="PepperPanel" unique_id=1231848050]
 layout_mode = 1
 anchors_preset = 2
@@ -331,6 +355,9 @@ vertical_alignment = 2
 
 [node name="Pepper" type="Timer" parent="." unique_id=998249842]
 
+[node name="Spice" type="Timer" parent="." unique_id=1150580275]
+wait_time = 3.0
+
 [connection signal="pressed" from="Buttons/MakeSauce" to="." method="_on_make_sauce_pressed"]
 [connection signal="pressed" from="Buttons/PriceInc" to="." method="_on_price_inc_pressed"]
 [connection signal="pressed" from="Buttons/PriceDec" to="." method="_on_price_dec_pressed"]
@@ -341,4 +368,6 @@ vertical_alignment = 2
 [connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug2" to="." method="_on_plug_2_pressed"]
 [connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug3" to="." method="_on_plug_3_pressed"]
 [connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug4" to="." method="_on_plug_4_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug5" to="." method="_on_plug_5_pressed"]
 [connection signal="timeout" from="Pepper" to="." method="_on_pepper_timeout"]
+[connection signal="timeout" from="Spice" to="." method="_on_spice_timeout"]
