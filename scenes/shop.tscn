@@ -296,7 +296,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
-text = "Tomato Supply(75% more 
+text = "Tomato Supply(75r% more 
 tomatoes per box)
 ‎ 
 "

@@ -1,8 +1,8 @@
 extends Node
-var money = 0.0
+var money = 6700000000000.0
 var tomatoes = 1000
 var pepper = 0
-var pepper_per_sec = 5
+var pepper_per_sec = 670000
 var pepper_cap = 1000
 var revenue_per_sec = 0.0
 var revenue_enabled = false
@@ -19,6 +19,7 @@ var marketing_lvl = 0
 var marketing_boost = 0
 var tomato_boost = 0
 var machine_cooldown = 1.0
+var spice = 0
 var upg1cost = 6.00
 var upg2cost = 100.00
 var upg3cost = 250.00
@@ -29,6 +30,10 @@ var upg5cost = 850.00
 var upg5bought = false
 var upg6cost = 600.00
 var upg6bought = false
+var plug1bought = false
+var plug2bought = false
+var plug3bought = false
+var plug4bought = false
 var saves = "user://userdata.save"
 func save_data():
 	var data = {
@@ -58,7 +63,12 @@ func save_data():
 		"pepper": pepper,
 		"pepper_cap": pepper_cap,
 		"pepper_per_sec": pepper_per_sec,
-		"revenue_enabled": revenue_enabled
+		"revenue_enabled": revenue_enabled,
+		"plug1bought": plug1bought,
+		"plug2bought": plug2bought,
+		"plug3bought": plug3bought,
+		"plug4bought": plug4bought,
+		"spice": spice
 	}
 	var file = FileAccess.open(saves,FileAccess.WRITE)
 	file.store_var(data)
@@ -96,7 +106,11 @@ func load_data():
 			pepper_per_sec = data.get("pepper_per_sec",5)
 			pepper_cap = data.get("pepper_cap",1000)
 			revenue_enabled = data.get("revenue_enabled",false)
-			
+			plug1bought = data.get("plug1bought",false)
+			plug2bought = data.get("plug2bought",false)
+			plug3bought = data.get("plug3bought",false)
+			plug4bought = data.get("plug4bought",false)
+			spice = data.get("spice",0)
 	else:
 		save_data()
 func format_number(n):

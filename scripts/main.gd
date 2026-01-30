@@ -10,12 +10,18 @@ var sell_interval = 1.0
 @onready var demand_label = $VBoxContainer/Demand
 @onready var pepper_label = $PepperPanel/Pepper
 @onready var revenue_label = $Revenue
+@onready var spice_label = $PepperPanel/Spice
 func _ready():
 	update_ui()
 	Global.load_data()
 	$Passive.start(Global.machine_cooldown)
 	$Pepper.start()
-
+	if Global.plug1bought:
+		$PepperPanel/ScrollContainer/VBoxContainer/plug1.queue_free()
+	if Global.plug2bought:
+		$PepperPanel/ScrollContainer/VBoxContainer/plug2.queue_free()
+	if Global.plug3bought:
+		$PepperPanel/ScrollContainer/VBoxContainer/plug3.queue_free()
 
 func _process(delta):
 	Global.marketing_boost = Global.marketing_lvl * 0.25
@@ -32,6 +38,7 @@ func update_ui():
 	price_label.text = "Price Per Bottle: $"+Global.format_number(Global.sauce_price)
 	demand_label.text = "Public Demand: " +Global.format_number(int(Global.public_demand*(1+Global.marketing_boost)*100))+"%"
 	pepper_label.text = "Pepper: "+ str(round(Global.pepper))+" / "+ str(Global.pepper_cap)
+	spice_label.text = "Spice: "+str(round(Global.spice))
 	if Global.revenue_enabled:
 		revenue_label.visible = true
 		revenue_label.text = "Revenue/sec: $" + Global.format_number(Global.revenue_per_sec)
@@ -58,6 +65,8 @@ func _on_make_sauce_pressed() -> void:
 func generate_pepper():
 	Global.pepper += Global.pepper_per_sec
 	Global.pepper = min(Global.pepper,Global.pepper_cap)
+	if Global.pepper >= Global.pepper_cap:
+		Global.spice += 1
 func _on_price_inc_pressed() -> void:
 	Global.sauce_price += 0.01
 	recalc_demand()
@@ -104,10 +113,48 @@ func _on_passive_timeout() -> void:
 func _on_pepper_timeout() -> void:
 	generate_pepper()
 
+func fade_out(button):
+	button.disabled = true
+	var tween := get_tree().create_tween()
+	tween.tween_property(button, "modulate:a", 0.0, 0.4)
+	tween.finished.connect(button.queue_free)
+
 
 func _on_plug_1_pressed() -> void:
 	if Global.pepper >= 500:
 		Global.pepper -= 500
+		Global.plug1bought = false
 		Global.revenue_enabled = true
+		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug1)
+		update_ui()
+		Global.save_data()
+
+
+func _on_plug_2_pressed() -> void:
+	if Global.pepper >= 750:
+		Global.pepper -= 750
+		Global.plug2bought = false
+		Global.pepper_cap = 2500
+		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug2)
+		update_ui()
+		Global.save_data()
+
+func _on_plug_3_pressed() -> void:
+	if Global.pepper >= 1500:
+		Global.pepper -= 1500
+		Global.plug3bought = false
+		Global.pepper_per_sec = 8
+		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug3)
+		update_ui()
+		Global.save_data()
+
+
+func _on_plug_4_pressed() -> void:
+	if Global.spice >= 25 and Global.pepper >= 2500:
+		Global.pepper -= 1500
+		Global.spice -= 25
+		Global.plug4bought = false
+		Global.marketing_boost *= 1.5
+		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug4)
 		update_ui()
 		Global.save_data()

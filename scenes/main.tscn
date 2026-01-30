@@ -167,7 +167,7 @@ text = "Shop"
 [node name="PepperPanel" type="Panel" parent="." unique_id=1774111163]
 layout_mode = 0
 offset_left = 770.0
-offset_top = 270.0
+offset_top = 262.0
 offset_right = 1121.0
 offset_bottom = 583.0
 
@@ -176,9 +176,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -102.0
-offset_right = 102.0
-offset_bottom = 31.0
+offset_left = -163.0
+offset_top = 1.0
+offset_right = 163.0
+offset_bottom = 50.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
@@ -192,9 +193,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = -248.0
+offset_top = -273.0
 offset_right = 185.0
-offset_bottom = -217.0
+offset_bottom = -242.0
 grow_vertical = 0
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_sugp2")
@@ -202,14 +203,26 @@ theme_override_font_sizes/font_size = 25
 text = "Pepper: 0/1000"
 vertical_alignment = 2
 
-[node name="plug1" type="Button" parent="PepperPanel" unique_id=416378501]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 107.0
-offset_right = 339.0
-offset_bottom = 171.0
+[node name="ScrollContainer" type="ScrollContainer" parent="PepperPanel" unique_id=1719930759]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.057000004
+anchor_bottom = 0.187
+offset_left = 11.0
+offset_top = 105.0
+offset_right = 319.993
+offset_bottom = 249.469
 
-[node name="plug1label" type="Label" parent="PepperPanel/plug1" unique_id=879664910]
+[node name="VBoxContainer" type="VBoxContainer" parent="PepperPanel/ScrollContainer" unique_id=1194282208]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="plug1" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=416378501]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+
+[node name="plug1label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug1" unique_id=879664910]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -229,6 +242,93 @@ text = "Revenue Tracker: Calculates the revenue per
 second. (500 pepper)
 "
 
+[node name="plug2" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=2094119726]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="plug2label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug2" unique_id=43696199]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "Plantation Upgrade I: Increases pepper 
+storage. (750  pepper)
+"
+
+[node name="plug3" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=16851889]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="plug3label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug3" unique_id=1281173323]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "Plantation Effectiveness I: Increases pepper
+produces per second. (1500 pepper)
+"
+
+[node name="plug4" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=692909416]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="plug4label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug4" unique_id=883186468]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "Spicy Slogan: Increases Marketing Efficiency
+by 50% (25 Spice, 2500 Pepper)"
+
+[node name="Spice" type="Label" parent="PepperPanel" unique_id=1231848050]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -246.0
+offset_right = 186.0
+offset_bottom = -215.0
+grow_vertical = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_font_sizes/font_size = 25
+text = "Spice: 0"
+vertical_alignment = 2
+
 [node name="Pepper" type="Timer" parent="." unique_id=998249842]
 
 [connection signal="pressed" from="Buttons/MakeSauce" to="." method="_on_make_sauce_pressed"]
@@ -237,5 +337,8 @@ second. (500 pepper)
 [connection signal="pressed" from="Buttons/BuyTomato" to="." method="_on_buy_tomato_pressed"]
 [connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
 [connection signal="timeout" from="Passive" to="." method="_on_passive_timeout"]
-[connection signal="pressed" from="PepperPanel/plug1" to="." method="_on_plug_1_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug1" to="." method="_on_plug_1_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug2" to="." method="_on_plug_2_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug3" to="." method="_on_plug_3_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug4" to="." method="_on_plug_4_pressed"]
 [connection signal="timeout" from="Pepper" to="." method="_on_pepper_timeout"]
