@@ -211,7 +211,7 @@ anchor_bottom = 0.187
 offset_left = 11.0
 offset_top = 105.0
 offset_right = 319.993
-offset_bottom = 249.469
+offset_bottom = 248.97299
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PepperPanel/ScrollContainer" unique_id=1194282208]
 layout_mode = 2
@@ -337,6 +337,101 @@ text = "Plantation Upgrade II: Increases pepper
 storage. (2500  pepper)
 "
 
+[node name="plug6" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=648433239]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="plug6label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug6" unique_id=880459921]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "Machine Efficiency III: Increases Machine 
+Efficiency by 75%. (5000 pepper)
+"
+
+[node name="plug7" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=1369570961]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="plug7label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug7" unique_id=870271138]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "Plantation Effectiveness II: Increases pepper
+produces per second. (2500 pepper)
+"
+
+[node name="plug8" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=1091043225]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="plug8label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug8" unique_id=785842186]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "KSI Collab: Double Marketing Effectiveness
+ (45 Spice, 4500 pepper)"
+
+[node name="plug9" type="Button" parent="PepperPanel/ScrollContainer/VBoxContainer" unique_id=196405894]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="plug9label" type="Label" parent="PepperPanel/ScrollContainer/VBoxContainer/plug9" unique_id=1227445006]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -23.0
+offset_right = 160.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_sugp2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
+text = "Plantation Upgrade III: Increases pepper 
+storage. (4000  pepper)
+"
+
 [node name="Spice" type="Label" parent="PepperPanel" unique_id=1231848050]
 layout_mode = 1
 anchors_preset = 2
@@ -354,6 +449,7 @@ text = "Spice: 0"
 vertical_alignment = 2
 
 [node name="Pepper" type="Timer" parent="." unique_id=998249842]
+wait_time = 0.581
 
 [node name="Spice" type="Timer" parent="." unique_id=1150580275]
 wait_time = 3.0
@@ -369,5 +465,9 @@ wait_time = 3.0
 [connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug3" to="." method="_on_plug_3_pressed"]
 [connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug4" to="." method="_on_plug_4_pressed"]
 [connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug5" to="." method="_on_plug_5_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug6" to="." method="_on_plug_6_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug7" to="." method="_on_plug_7_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug8" to="." method="_on_plug_8_pressed"]
+[connection signal="pressed" from="PepperPanel/ScrollContainer/VBoxContainer/plug9" to="." method="_on_plug_9_pressed"]
 [connection signal="timeout" from="Pepper" to="." method="_on_pepper_timeout"]
 [connection signal="timeout" from="Spice" to="." method="_on_spice_timeout"]

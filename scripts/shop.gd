@@ -66,6 +66,7 @@ func _on_upg_5_pressed() -> void:
 func _on_upg_6_pressed() -> void:
 	if Global.money >= Global.upg6cost and !Global.upg6bought:
 		Global.tomato_boost += 0.75
+		Global.pepper += 5000
 		Global.upg6bought = true
 		Global.money -= Global.upg6cost
 		$Panel/ScrollContainer/VBoxContainer/upg6.disabled = true

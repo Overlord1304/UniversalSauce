@@ -27,8 +27,13 @@ func _ready():
 		$PepperPanel/ScrollContainer/VBoxContainer/plug4.queue_free()
 	if Global.plug5bought:
 		$PepperPanel/ScrollContainer/VBoxContainer/plug5.queue_free()
+	if Global.plug6bought:
+		$PepperPanel/ScrollContainer/VBoxContainer/plug6.queue_free()
+	if Global.plug7bought:
+		$PepperPanel/ScrollContainer/VBoxContainer/plug7.queue_free()
+	if Global.plug8bought:
+		$PepperPanel/ScrollContainer/VBoxContainer/plug8.queue_free()
 func _process(delta):
-	print(Global.plug1bought)
 	Global.marketing_boost = 1+(Global.marketing_lvl * 0.25)
 	sell_timer += delta
 	if sell_timer >= sell_interval:
@@ -131,7 +136,7 @@ func _on_plug_1_pressed() -> void:
 		Global.revenue_enabled = true
 		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug1)
 		update_ui()
-		Global.save_data()
+		Global.save_data() 
 
 
 func _on_plug_2_pressed() -> void:
@@ -163,7 +168,7 @@ func _on_plug_4_pressed() -> void:
 		recalc_demand()
 		update_ui()
 		Global.save_data()
-
+c cccccccdcd
 
 func _on_spice_timeout() -> void:
 	if Global.pepper >= Global.pepper_cap:
@@ -176,5 +181,47 @@ func _on_plug_5_pressed() -> void:
 		Global.plug5bought = true
 		Global.pepper_cap = 5000
 		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug5)
+		update_ui()
+		Global.save_data()
+
+
+func _on_plug_6_pressed() -> void:
+	if Global.pepper >= 5000:
+		Global.pepper -= 5000
+		Global.machine_cooldown /= 1.75
+		Global.plug6bought = true
+		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug6)
+		update_ui()
+		Global.save_data()
+
+
+func _on_plug_7_pressed() -> void:
+	if Global.pepper >= 2500:
+		Global.pepper -= 2500
+		Global.plug7bought = true
+		Global.pepper_per_sec *= 3
+		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug7)
+		update_ui()
+		Global.save_data()
+
+
+func _on_plug_8_pressed() -> void:
+	if Global.spice >= 45 and Global.pepper >= 4500:
+		Global.pepper -= 4500
+		Global.spice -= 45
+		Global.plug8bought = true
+		Global.plug_marketing_boost += 1.5
+		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug8)
+		recalc_demand()
+		update_ui()
+		Global.save_data()
+
+
+func _on_plug_9_pressed() -> void:
+	if Global.pepper >= 4000:
+		Global.pepper -= 4000
+		Global.plug9bought = true
+		Global.pepper_cap = 7500
+		fade_out($PepperPanel/ScrollContainer/VBoxContainer/plug9)
 		update_ui()
 		Global.save_data()

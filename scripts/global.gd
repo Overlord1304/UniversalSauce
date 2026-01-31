@@ -2,7 +2,7 @@ extends Node
 var money = 6700000000000.0
 var tomatoes = 1000
 var pepper = 0
-var pepper_per_sec = 670000
+var pepper_per_sec = 10
 var pepper_cap = 1000
 var revenue_per_sec = 0.0
 var revenue_enabled = false
@@ -35,6 +35,10 @@ var plug2bought = false
 var plug3bought = false
 var plug4bought = false
 var plug5bought = false
+var plug6bought = false
+var plug7bought = false
+var plug8bought = false
+var plug9bought = false
 var plug_marketing_boost = 1
 var saves = "user://userdata.save"
 func save_data():
@@ -71,6 +75,10 @@ func save_data():
 		"plug3bought": plug3bought,
 		"plug4bought": plug4bought,
 		"plug5bought": plug5bought,
+		"plug6bought": plug6bought,
+		"plug7bought": plug7bought,
+		"plug8bought": plug8bought,
+		"plug9bought": plug9bought,
 		"spice": spice,
 		"plug_marketing_boost": plug_marketing_boost
 	}
@@ -115,6 +123,10 @@ func load_data():
 			plug3bought = data.get("plug3bought",false)
 			plug4bought = data.get("plug4bought",false)
 			plug5bought = data.get("plug5bought",false)
+			plug6bought = data.get("plug6bought",false)
+			plug7bought = data.get("plug7bought",false)
+			plug8bought = data.get("plug8bought",false)
+			plug9bought = data.get("plug9bought",false)
 			spice = data.get("spice",0)
 			plug_marketing_boost = data.get("plug_marketing_boost",0)
 	else:

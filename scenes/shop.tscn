@@ -235,8 +235,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
-text = "Machine Efficiency(machines 50%
-more effective
+text = "Machine Efficiency(machines
+25%
+more effective)
 ‎ 
 "
 
@@ -246,9 +247,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -118.0
-offset_top = 111.0
+offset_top = 165.0
 offset_right = 118.0
-offset_bottom = 233.0
+offset_bottom = 287.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_1l46r")
@@ -267,7 +268,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
 text = "Machine Efficiency
 II(machines 50%
-more effective
+more effective)
 ‎ 
 "
 
@@ -296,7 +297,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1l46r")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_032fp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2fc2m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2fc2m")
-text = "Tomato Supply(75r% more 
+text = "Tomato Supply(75% more 
 tomatoes per box)
 ‎ 
 "
